@@ -39,7 +39,7 @@ const HeroSlide = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <Swiper
@@ -59,16 +59,14 @@ const HeroSlide = () => {
       }}
     >
       {movies.map((movie, key) => (
-        <>
-          <SwiperSlide key={key}>
-            {({ isActive }) => (
-              <HeroSildeItem
-                item={movie}
-                className={`${isActive ? "active" : ""}`}
-              />
-            )}
-          </SwiperSlide>
-        </>
+        <SwiperSlide key={key}>
+          {({ isActive }) => (
+            <HeroSildeItem
+              item={movie}
+              className={`${isActive ? "active" : ""}`}
+            />
+          )}
+        </SwiperSlide>
       ))}
     </Swiper>
   );

@@ -38,8 +38,8 @@ export const Button = styled.button<ButtonProps>`
   font-size: 1rem;
   font-weight: 600;
   padding: ${({ small }) => (small ? "0.3rem 1.5rem" : "0.5rem 1.8rem")};
+  border: 4px solid ${({ outline }) => (outline ? "#fff" : "transparent")};
   border-width: ${({ small }) => (small ? "2px" : "4px")};
-  border: solid ${({ outline }) => (outline ? "#fff" : "transparent")};
   cursor: pointer;
   transition: all 0.3s ease;
 

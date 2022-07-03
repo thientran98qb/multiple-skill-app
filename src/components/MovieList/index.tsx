@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { categories, tmdbConfig } from '../../api/tmdbConfig';
 import { Movie } from '../../models';
@@ -8,7 +9,17 @@ interface MovieListProps {
   type: string;
   category: string;
 }
-
+const SlideItem = styled(SwiperSlide)`
+  .swiper-slide {
+    width: 15%;
+    @media only screen and (max-width: 768px) {
+      width: 30%;
+    }
+    @media only screen and (max-width: 460px) {
+      width: 47%;
+    }
+  }
+`
 const MovieList = ({type, category}: MovieListProps) => {
   const [items, setItems] = useState<Movie[]>([])
   /**
@@ -31,13 +42,15 @@ const MovieList = ({type, category}: MovieListProps) => {
     })()
   }, [type, category])
   return (
-    <Swiper slidesPerView={"auto"} spaceBetween={20}>
-      {items.map((movie, index) => (
-        <SwiperSlide style={{width: "15%"}} key={index}>
-          <MovieItem movie={movie}/>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <SlideItem>
+      <Swiper slidesPerView={"auto"} spaceBetween={20}>
+        {items.map((movie, index) => (
+          <SwiperSlide key={index}>
+            <MovieItem movie={movie}/>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </SlideItem>
   )
 }
 

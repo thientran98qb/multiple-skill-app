@@ -9,7 +9,7 @@ export const MovieItemContainer = styled.div<MovieItemProps>`
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 130%;
+    padding-top: 160%;
     border-radius: 10px;
     position: relative;
     &::after {
@@ -42,8 +42,8 @@ export const MovieItemContainer = styled.div<MovieItemProps>`
     }
   }
   p {
-    margin-top: 5px;
-    font-size: 1rem;
+    margin-top: 10px;
+    font-size: 1.1rem;
     font-weight: 600;
   }
 `

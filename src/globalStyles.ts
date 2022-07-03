@@ -2,6 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 interface ButtonProps {
   readonly outline?: boolean;
+  readonly small?: boolean;
 }
 const GlobalStyles = createGlobalStyle`
     body {
@@ -36,8 +37,9 @@ export const Button = styled.button<ButtonProps>`
     outline ? "unset" : "0px 0px 7px 8px #ff00004d"};
   font-size: 1rem;
   font-weight: 600;
-  padding: 0.5rem 1.8rem;
-  border: 4px solid ${({ outline }) => (outline ? "#fff" : "transparent")};
+  padding: ${({ small }) => (small ? "0.3rem 1.5rem" : "0.5rem 1.8rem")};
+  border-width: ${({ small }) => (small ? "2px" : "4px")};
+  border: solid ${({ outline }) => (outline ? "#fff" : "transparent")};
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -50,4 +52,21 @@ export const Button = styled.button<ButtonProps>`
         : "box-shadow: 0px 0px 7px 15px #ff00004d;"};
   }
 `;
+
+export const HeadTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  p {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+`
+
+export const Section = styled.div`
+  padding: 1rem 2rem;
+`
 export default GlobalStyles;
